@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author HP
  */
-public class Usuario {
+public class Usuario implements Autenticavel{
     
     private String email;
     private String nome;
@@ -108,6 +108,11 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" + "email=" + email + ", nome=" + nome + ", nascimento=" + nascimento + ", sexo=" + sexo + ", senha=" + senha + '}';
+    }
+
+    @Override
+    public boolean autentica(String email, String senha){
+        return email.equals(this.email) && senha.equals(this.senha);
     }
     
 }

@@ -15,7 +15,7 @@ import modelo.Usuario;
  */
 public class Cadastro_Usuario {
     
-    private final List<Usuario> usuarios;
+    private static List<Usuario> usuarios;
     
     public Cadastro_Usuario(){
         usuarios = new ArrayList<>();
@@ -23,15 +23,6 @@ public class Cadastro_Usuario {
     
     public boolean create(Usuario u){
         return usuarios.add(u);
-    }
-    
-    public Usuario read(String email){
-        for(Usuario u : usuarios){
-            if(u.getEmail().equals(email)){
-                return u;
-            }
-        }
-        return null;
     }
     
     public List<Usuario> list(){
