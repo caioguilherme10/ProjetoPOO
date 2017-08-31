@@ -145,16 +145,16 @@ public class ProjetoPOO_1 {
                                                             DateTimeFormatter fomater = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                                                             LocalDate datam = LocalDate.parse(data, fomater);
                                                             ler.nextLine();
-                                                            System.out.println("Preço:");
-                                                            float preco = ler.nextFloat();
                                                             System.out.println("Tipo: ");
                                                             String tipo = ler.nextLine();
                                                             ler.nextLine();
                                                             System.out.println("Categoria: ");
                                                             String categoria = ler.nextLine();
                                                             ler.nextLine();
+                                                            System.out.println("Preço: ");
+                                                            float preco = ler.nextFloat();
                                                             Movimentacao movim = new Movimentacao(descricao,datam,preco,tipo,categoria,email);
-                                                            movimentacao.create(mov1);
+                                                            movimentacao.create(movim);
                                                             System.out.println(movimentacao.list());
                                                             cadmovi = false;
                                                             break;
@@ -216,7 +216,6 @@ public class ProjetoPOO_1 {
                                 }else{
                                     System.out.println("Senhas diferentes");
                                 }
-                                System.out.println(nasc);
                                 cadas = false;
                                 break;
                             case 0:
