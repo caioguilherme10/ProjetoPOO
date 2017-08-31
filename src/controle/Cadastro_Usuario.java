@@ -29,6 +29,18 @@ public class Cadastro_Usuario {
         return usuarios;
     }
     
+    public Usuario buscar(String email){
+        for(Usuario a : usuarios){
+            if(a.getClass() == Usuario.class){
+                Usuario usu = (Usuario)a;
+                if(usu.getEmail().equals(email)){
+                    return a;
+                }
+            }
+        }
+        return null;
+    }
+    
     public boolean update(Usuario u){
         for(int i=0; i<usuarios.size(); i++){
             if(usuarios.get(i).getEmail().equals(u.getEmail())){

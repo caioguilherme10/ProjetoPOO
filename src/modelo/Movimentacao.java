@@ -14,18 +14,23 @@ import java.util.Objects;
  */
 public class Movimentacao {
     
+    private int id;
+    private static int contmovimentacao;
     private String descricao;
     private LocalDate data;
     private float preco;
     private String tipo;
     private String categoria;
+    private String email;
 
-    public Movimentacao(String descricao, LocalDate data, float preco, String tipo, String categoria) {
+    public Movimentacao(String descricao, LocalDate data, float preco, String tipo, String categoria, String email) {
+        this.id =  ++contmovimentacao;
         this.descricao = descricao;
         this.data = data;
         this.preco = preco;
         this.tipo = tipo;
         this.categoria = categoria;
+        this.email = email;
     }
 
     public String getDescricao() {
@@ -68,14 +73,28 @@ public class Movimentacao {
         this.categoria = categoria;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.descricao);
-        hash = 59 * hash + Objects.hashCode(this.data);
-        hash = 59 * hash + Float.floatToIntBits(this.preco);
-        hash = 59 * hash + Objects.hashCode(this.tipo);
-        hash = 59 * hash + Objects.hashCode(this.categoria);
+        hash = 61 * hash + this.id;
+        hash = 61 * hash + Objects.hashCode(this.descricao);
+        hash = 61 * hash + Objects.hashCode(this.data);
+        hash = 61 * hash + Float.floatToIntBits(this.preco);
+        hash = 61 * hash + Objects.hashCode(this.tipo);
+        hash = 61 * hash + Objects.hashCode(this.categoria);
+        hash = 61 * hash + Objects.hashCode(this.email);
         return hash;
     }
 
@@ -91,6 +110,9 @@ public class Movimentacao {
             return false;
         }
         final Movimentacao other = (Movimentacao) obj;
+        if (this.id != other.id) {
+            return false;
+        }
         if (Float.floatToIntBits(this.preco) != Float.floatToIntBits(other.preco)) {
             return false;
         }
@@ -103,6 +125,9 @@ public class Movimentacao {
         if (!Objects.equals(this.categoria, other.categoria)) {
             return false;
         }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
         if (!Objects.equals(this.data, other.data)) {
             return false;
         }
@@ -111,7 +136,6 @@ public class Movimentacao {
 
     @Override
     public String toString() {
-        return "Movimentacao{" + "descricao=" + descricao + ", data=" + data + ", preco=" + preco + ", tipo=" + tipo + ", categoria=" + categoria + '}';
+        return "Movimentacao{" + "id=" + id + ", descricao=" + descricao + ", data=" + data + ", preco=" + preco + ", tipo=" + tipo + ", categoria=" + categoria + ", email=" + email + '}';
     }
-    
 }
